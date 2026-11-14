@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f3ec" />
+  <title>My Reading List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="My Reading List home"><span class="brand-mark">✦</span> little bookshelf</a>
+      <span class="top-note">A quiet corner for your next chapter</span>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">YOUR PERSONAL LIBRARY</p>
+        <h1>Make room for<br><em>good stories.</em></h1>
+        <p class="hero-subtitle">Keep track of the books you want to read, the ones you're enjoying, and the stories you've finished.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="sun"></div><div class="book-stack"><span></span><span></span><span></span></div>
+        <div class="sparkle s1">✳</div><div class="sparkle s2">✦</div>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Reading statistics">
+      <article class="stat-card"><span class="stat-icon">▤</span><div><p>Total books</p><strong id="total-count">0</strong></div></article>
+      <article class="stat-card"><span class="stat-icon">◷</span><div><p>Currently reading</p><strong id="reading-count">0</strong></div></article>
+      <article class="stat-card"><span class="stat-icon">✓</span><div><p>Finished</p><strong id="finished-count">0</strong></div></article>
+    </section>
+
+    <section class="content-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE COLLECTION</p><h2>Your reading list</h2></div>
+        <span class="book-total" id="collection-label">0 books</span>
+      </div>
+
+      <form id="book-form" class="add-panel" novalidate>
+        <div class="field-wrap">
+          <label for="book-title">Book title</label>
+          <input id="book-title" name="title" type="text" maxlength="60" placeholder="e.g. The Midnight Library" autocomplete="off" />
+          <small><span id="char-count">0</span>/60 characters</small>
+        </div>
+        <div class="field-wrap status-field">
+          <label for="book-status">Reading status</label>
+          <select id="book-status" name="status">
+            <option value="Want to Read">Want to Read</option>
+            <option value="Reading">Reading</option>
+            <option value="Finished">Finished</option>
+          </select>
+        </div>
+        <button class="add-button" type="submit"><span>＋</span> Add book</button>
+        <p class="form-message" id="form-message" role="alert" aria-live="polite"></p>
+      </form>
+
+      <div class="filter-row">
+        <div class="filter-tabs" role="group" aria-label="Filter books">
+          <button class="filter-btn active" data-filter="All" type="button">All books</button>
+          <button class="filter-btn" data-filter="Want to Read" type="button">Want to read</button>
+          <button class="filter-btn" data-filter="Reading" type="button">Reading</button>
+          <button class="filter-btn" data-filter="Finished" type="button">Finished</button>
+        </div>
+        <span class="showing-label" id="showing-label">Showing all</span>
+      </div>
+
+      <div id="book-list" class="book-grid"></div>
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon">✧</div>
+        <h3>Your reading list is empty.</h3>
+        <p>Add your first book and let the adventure begin.</p>
+      </div>
+    </section>
+
+    <footer><span>Made for readers, one page at a time.</span><span>✦</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
